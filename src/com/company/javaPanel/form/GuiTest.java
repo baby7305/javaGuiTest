@@ -23,10 +23,12 @@ public class GuiTest {
 		button1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				String id = idTextField.getText();
-				String user=textField1.getText();
+				String idString = idTextField.getText();
+				int id = 0;
+				id = Integer.parseInt(idString);
+				String user = textField1.getText();
 				LoginControl loginControl = new LoginControl();
-				boolean isInGood = loginControl.loginTest();
+				boolean isInGood = loginControl.loginTest1(id, user);
 				if (isInGood) {
 					JOptionPane.showMessageDialog(null, "Username and password correct");
 				} else {
